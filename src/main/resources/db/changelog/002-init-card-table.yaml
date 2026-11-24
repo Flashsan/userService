@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-init-card-table
+      author: Aliaksandr Hryharovich
+      changes:
+        - createTable:
+            tableName: card
+            columns:
+              - column:
+                name: id
+                type: bigint
+                autoIncrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+              - column:
+                  name: card_number_hash
+                  type: varchar(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: expiry_month
+                  type: int
+              - column:
+                  name: expiry_year
+                  type: int
+              - column:
+                  name: brand
+                  type: varchar(50)
+              - column:
+                  name: is_default
+                  type: boolean
+                  defaultValueBoolean: false
